@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Works Done</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0a0c10; color: #fff; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00f2fe; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 25px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #00f2fe; }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        h1 { font-size: 2.5rem; margin-bottom: 50px; text-align: center; color: #00f2fe; }
+
+        .work-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .work-section h2 { color: #00f2fe; font-size: 1.8rem; margin-bottom: 15px; border-left: 4px solid #00f2fe; padding-left: 15px; }
+        .work-section p { color: #a0aec0; line-height: 1.6; margin-bottom: 25px; }
+        
+        .img-container { width: 100%; max-height: 400px; overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DANDII BORU</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.html">News</a>
+            <a href="leadership.html">Leadership</a>
+            <a href="works.html" class="active">Works Done</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Our Accomplishments</h1>
+
+        <!-- Section 1 -->
+        <div class="work-section">
+            <h2>01. Community Outreach Initiatives</h2>
+            <p>Our team organized local community campaigns emphasizing cooperation and awareness. Members actively engaged in delivering educational resources and hosting informative peer talks.</p>
+            <div class="img-container">
+                <img src="images/work1.jpg" alt="Community Outreach Event Pic">
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="work-section">
+            <h2>02. First Aid & Safety Workshops</h2>
+            <p>Collaborating with local coordinators, we facilitated hands-on emergency training sessions. Students acquired vital skills in first response management and basic care setup.</p>
+            <div class="img-container">
+                <img src="images/work2.jpg" alt="Safety Workshop Pic">
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="work-section">
+            <h2>03. School Campus Donation Drives</h2>
+            <p>We launched collection drives within Dandii Boru School to coordinate resources for health and wellness networks, showcasing amazing student solidarity.</p>
+            <div class="img-container">
+                <img src="images/work3.jpg" alt="Donation Drive Event Pic">
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="work-section">
+            <h2>04. Digital Portal Deployment</h2>
+            <p>Designed and launched this web portal to keep our students interconnected. The platform ensures immediate access to leadership records, ongoing blog rollouts, and event registration forms.</p>
+            <div class="img-container">
+                <img src="images/work4.jpg" alt="Web Development Deployment Pic">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

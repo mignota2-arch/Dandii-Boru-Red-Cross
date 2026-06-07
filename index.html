@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dandii Boru School Red Cross Club</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff1722' d='M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z'/></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-plus-square"></i> DBS <span>RED CROSS</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="works.html">Our Works</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="neon-text">Humanity First. <br><span class="highlight">Volunteers Always.</span></h1>
+            <p class="hero-subtitle">Welcome to the digital portal of Dandii Boru School's Red Cross Club. We train for field stabilization, organize impactful blood drives, and coordinate humanitarian aid deployment models within Addis Ababa.</p>
+            <div class="cta-container">
+                <a href="works.html" class="btn btn-primary">Explore Our Impact <i class="fas fa-arrow-right"></i></a>
+                <a href="#volunteer-simulation" class="btn btn-secondary">Simulate Registration</a>
+            </div>
+        </div>
+        <div class="hero-visual-container">
+            <div class="visual-card">
+                <img src="images/redcross-hero.jpg" alt="DBS Red Cross Student Volunteers" class="hero-image">
+                <div class="floating-badge"><i class="fas fa-heartbeat"></i> <span>In Service of Humanity</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section" style="padding-top: 10px; padding-bottom: 40px;">
+        <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--cyan-accent);">
+                <i class="fas fa-user-friends" style="font-size: 36px; color: var(--cyan-accent); margin-bottom: 15px;"></i>
+                <h3 style="font-size: 36px; font-weight: 800;">150+</h3>
+                <p>Active Recruited Members</p>
+            </div>
+            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--neon-crimson);">
+                <i class="fas fa-tint" style="font-size: 36px; color: var(--neon-crimson); margin-bottom: 15px;"></i>
+                <h3 style="font-size: 36px; font-weight: 800;">80+</h3>
+                <p>Pints of Blood Donated</p>
+            </div>
+            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--gold-accent);">
+                <i class="fas fa-clock" style="font-size: 36px; color: var(--gold-accent); margin-bottom: 15px;"></i>
+                <h3 style="font-size: 36px; font-weight: 800;">1,200+</h3>
+                <p>Field Hours Documented</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="volunteer-simulation" class="order-section">
+        <div class="glass-card simulation-box">
+            <h2 class="neon-text-sm"><i class="fas fa-id-badge"></i> Volunteer Manifest Generator</h2>
+            <p class="simulation-desc">Select an operational branch role to instantly compile a clean JSON deployment packet locally.</p>
+            <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('First Aid First Responder', 'Triage Unit')">First Aid Division</button>
+                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('Blood Bank Recruiter', 'Donor Logistics')">Blood Drive Team</button>
+                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('Outreach Officer', 'Public Welfare Distribution')">Outreach Division</button>
+            </div>
+            <div class="order-details">
+                <div class="detail-row"><span>Selected Track Position:</span><strong id="summary-item" style="color: #fff;">None Selected</strong></div>
+                <div class="detail-row"><span>Target Department Assignment:</span><strong id="summary-price" class="neon-price">Pending Track Action</strong></div>
+            </div>
+            <div class="sim-terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="terminal-title">DBS Node Runtime System Console</span>
+                </div>
+                <pre id="console-output">// Awaiting system track selection criteria...</pre>
+            </div>
+            <button class="btn btn-primary" id="pay-btn" style="width: 100%; justify-content: center;" onclick="triggerVerificationToast()" disabled>
+                <i class="fas fa-cube"></i> Append Manifest to State Local Cache
+            </button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Dandii Boru School Red Cross Club. Optimized with Modern Fluid Architecture.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
