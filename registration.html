@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration | DBS Red Cross</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff1722' d='M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z'/></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registration-container {
+            padding: 140px 8% 80px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-group label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-crimson);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(255, 23, 34, 0.2);
+        }
+        .form-group select option {
+            background: var(--bg-primary);
+            color: #fff;
+        }
+        .info-sidebar {
+            flex: 0 0 360px;
+            position: sticky;
+            top: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        @media (max-width: 1024px) {
+            .registration-container { flex-direction: column; padding-top: 120px; gap: 30px; }
+            .info-sidebar { flex: 1; width: 100%; position: static; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-plus-square"></i> DBS <span>RED CROSS</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="registration.html" class="active">Registration</a></li>
+            <li><a href="report.html">Annual Report</a></li>
+        </ul>
+    </nav>
+
+    <div class="registration-container">
+        <div class="glass-card card-info" style="flex: 1; padding: 45px;">
+            <h2 class="neon-text-sm" style="font-size: 28px; margin-bottom: 5px;"><i class="fas fa-user-plus"></i> Volunteer Enlistment Portal</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Input structural criteria down below to initialize your localized deployment manifest state packet.</p>
+            
+            <form id="volunteerForm" onsubmit="compileVolunteerManifest(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>FULL NAME</label>
+                        <input type="text" id="regName" placeholder="e.g. Amanuel Gashaw" required>
+                    </div>
+                    <div class="form-group">
+                        <label>STUDENT ID NUMBER</label>
+                        <input type="text" id="regId" placeholder="e.g. DBS/10432/18" required>
+                    </div>
+                    <div class="form-group">
+                        <label>GRADE & SECTION LEVEL</label>
+                        <select id="regGrade" required>
+                            <option value="" disabled selected>Select educational parameters...</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>SEX / GENDER IDENTIFICATION</label>
+                        <select id="regSex" required>
+                            <option value="" disabled selected>Select sex factor...</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>CONTACT PHONE NUMBER</label>
+                        <input type="tel" id="regPhone" placeholder="e.g. 0948390309" required>
+                    </div>
+                    <div class="form-group">
+                        <label>PREFERRED SYSTEM OPERATIONAL TRACK</label>
+                        <select id="regTrack" required>
+                            <option value="" disabled selected>Select operational assignment...</option>
+                            <option value="First Aid First Responder">First Aid Division Track</option>
+                            <option value="Blood Bank Recruiter">Blood Drive Team Logistics</option>
+                            <option value="Outreach Officer">Outreach Division Public Welfare</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>STATEMENT OF HUMANITARIAN INTENT</label>
+                        <textarea id="regStatement" rows="4" placeholder="Briefly articulate your operational motives or mention existing field training backgrounds..." required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 35px;">
+                    <i class="fas fa-cube"></i> Compile and Cache Application Packet
+                </button>
+            </form>
+        </div>
+
+        <div class="info-sidebar">
+            <div class="glass-card card-info" style="padding: 30px; border-left: 4px solid var(--cyan-accent); margin: 0;">
+                <h4 style="color: #fff; font-size: 15px; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Node Pipeline Clearance</h4>
+                <p style="font-size: 13px; color: var(--text-muted); line-height: 1.65; margin: 0;">Submitted parameters assemble data structures into a temporary JSON state model before sending straight to Mr. Tilahun Getachew's admin panel ledger verification pipeline.</p>
+            </div>
+
+            <div class="sim-terminal" id="registrationTerminal" style="display: none; margin: 0;">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="terminal-title">DBS Node Compilation Engine</span>
+                </div>
+                <pre id="registrationOutput">// Standing by for memory stream buffering...</pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Dandii Boru School Red Cross Club. Optimized with Modern Fluid Architecture.</p>
+    </footer>
+
+    <script>
+        function compileVolunteerManifest(e) {
+            e.preventDefault();
+            const terminal = document.getElementById('registrationTerminal');
+            const output = document.getElementById('registrationOutput');
+            
+            terminal.style.display = 'block';
+            output.innerHTML = `// Intercepting downstream form submission payload...\nconst buffer = {\n  name: "${document.getElementById('regName').value}",\n  uid: "${document.getElementById('regId').value}",\n  assignment: "${document.getElementById('regTrack').value}",\n  timestamp: "${new Date().toISOString()}",\n  clearance: "PENDING_FACULTY_SIGN"\n};\n\n// Serializing data stream structure...`;
+            
+            setTimeout(() => {
+                output.innerHTML = `// MEMORY BUFFER STATE COMMITTED:\n{\n  "status": "Cached Successfully",\n  "transactionHash": "0x${Math.random().toString(16).substring(2,10).toUpperCase()}",\n  "payloadDescriptor": "DBS_RC_VOLUNTEER_MANIFEST"\n}\n\n// Ready for coordinator reconciliation check metrics.`;
+                alert('Manifest compiled successfully! Data cached onto terminal stream memory stack.');
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
