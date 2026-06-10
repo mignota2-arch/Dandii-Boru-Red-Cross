@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Activity Report | DBS Red Cross</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff1722' d='M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z'/></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .report-split-layout {
+            padding: 140px 6% 60px 6%;
+            display: flex;
+            gap: 35px;
+            min-height: calc(100vh - 120px);
+        }
+        .report-text-panel {
+            flex: 1.2;
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 45px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+        .report-text-panel::-webkit-scrollbar { width: 6px; }
+        .report-text-panel::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); }
+        .report-text-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .report-text-panel::-webkit-scrollbar-thumb:hover { background: var(--neon-crimson); }
+
+        .report-pdf-panel {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-height: 800px;
+        }
+        .pdf-header-bar {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .embedded-viewer { width: 100%; height: 100%; border: none; background: #1a191d; }
+        
+        .report-header-box {
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        .report-header-box h1 { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: 0.5px; line-height: 1.4; }
+        .report-header-box h2 { font-size: 13px; color: var(--gold-accent); margin-top: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+        
+        .report-section-title {
+            font-size: 14px;
+            color: var(--cyan-accent);
+            border-left: 3px solid var(--neon-crimson);
+            padding-left: 14px;
+            margin: 35px 0 16px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .report-body-text { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; text-align: justify; }
+        
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 13px;
+        }
+        .report-table th, .report-table td {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .report-table th { background: rgba(255, 255, 255, 0.03); color: #fff; font-weight: 700; }
+        .report-table tr:nth-child(even) { background: rgba(255, 255, 255, 0.01); }
+        .status-badge { padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        .status-badge.success { background: rgba(39, 201, 63, 0.12); color: #27c93f; border: 1px solid rgba(39, 201, 63, 0.2); }
+        .status-badge.cut { background: rgba(255, 95, 86, 0.12); color: #ff5f56; border: 1px solid rgba(255, 95, 86, 0.2); }
+
+        .report-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .meta-sign-box {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 1200px) {
+            .report-split-layout { flex-direction: column; padding-top: 120px; }
+            .report-text-panel, .report-pdf-panel { max-height: none; }
+            .report-pdf-panel { height: 600px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-plus-square"></i> DBS <span>RED CROSS</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="report.html" class="active">Annual Report</a></li>
+        </ul>
+    </nav>
+
+    <div class="report-split-layout">
+        <div class="report-text-panel">
+            <div class="report-header-box">
+                <h1>2018 E.C. (2025 - 2026) ACADEMIC YEAR<br>REDCROSS AND CHARITY CLUB ANNUAL ACTIVITY REPORT</h1>
+                <h2>High School Division — Executive Operational Summary</h2>
+                <p style="font-size: 13px; color: var(--text-muted); margin-top: 16px;">
+                    <i class="fas fa-chalkboard-teacher"></i> Coordinator: <strong>Mr. Tilahun Getachew</strong> | <i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia
+                </p>
+            </div>
+
+            <div class="report-section-title">1. Club Structure & Inception Registration</div>
+            <p class="report-body-text">The Dandii Boru School Red Cross division stands verified as an incredibly vital engine among student organization tracks. Structural alignment commenced via informative presentation guides broadcasting operational safety paradigms directly into the campus devotion loops. Initial assemblies processed extensive general registration catalogs, elected official committee leads, and assigned branch protocols smoothly.</p>
+
+            <div class="report-section-title">2. Operational Task Deployments</div>
+            <p class="report-body-text"><strong>Task 1: Assembly Schedules:</strong> System processes segmented meeting pathways into two main tracks: rigorous committee coordination review tracks held routinely on Sundays and broader student body assemblies synchronized at midday on Thursdays (13:00 - 13:50) outside of examination windows. Weekly first-aid coaching modules ran smoothly to maintain field capabilities.</p>
+            <p class="report-body-text"><strong>Task 2: Devotion Broadcast Modules:</strong> Members delivered humanitarian field presentations every Thursday assembly. Curricula metrics prioritized vital channels including introducing basic Red Cross origins, global humanitarian rules, urgent call lines (907, 939, 991), CPR methods, conflict mediation grids, and blood bank coordination.</p>
+            <p class="report-body-text"><strong>Task 5: Blood Bank Infrastructure Drives:</strong> Round one implementation metrics ran smoothly from December 3, 2025, to January 02, 2026 G.C.. Form parameters were routed out to family guardians to verify safety clearance levels. The operation logged an exceptional result where more than 100 students safely processed blood bank collections, capturing 350ml across 101 precise donors directly supporting public medical storage reserves. Round two metrics successfully processed another 30 donors on May 26, 2026 G.C..</p>
+            <p class="report-body-text"><strong>Task 7: Capital Fundraising Allocations:</strong> Specialized collections running over Culture Day operations brought in an initial internal pool of 1,160.00 Birr from general member accounts. Following official administrative authorization, outside campaign grids safely collected 2,250.00 Birr. Additional outreach tasks saw selective groups visit Macedonia Care Centers online networks and carry physical packages over to Selihom support associations. Final academic tracking collections running through June 5, 2026, securely transferred donor support assets over to checking account line 1000007864233.</p>
+
+            <div class="report-section-title">3. First Aid Trainee Registry Data Analysis</div>
+            <p class="report-body-text">Below are the authenticated data records for participants logged through the rigorous three-day deployment run conducted from November 20 to November 22, 2025 G.C.:</p>
+            
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Registered Name</th>
+                        <th>Grade</th>
+                        <th>Club Responsibility</th>
+                        <th>Execution Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Abenezer Tadesse</td><td>11B</td><td>Vice President</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>2</td><td>Amanawit Dereje</td><td>12B</td><td>President</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>3</td><td>Amanuel Gashaw</td><td>11D</td><td>Member / Web Creator</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>4</td><td>Bontomichiah Teshome</td><td>11E</td><td>Member</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>5</td><td>Christina Ermias</td><td>10A</td><td>Member</td><td><span class="status-badge cut">Cut</span></td></tr>
+                    <tr><td>6</td><td>Eyerusalem G/Medhin</td><td>11E</td><td>Member</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>7</td><td>Tinsae Teshome</td><td>11A</td><td>Member</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                    <tr><td>8</td><td>Mr. Tilahun Getachew</td><td>Staff</td><td>Club Coordinator</td><td><span class="status-badge success">Succeeded</span></td></tr>
+                </tbody>
+            </table>
+
+            <div class="report-section-title">4. Strategic Future System Requirements</div>
+            <p class="report-body-text">The division is requesting that the Ethiopian Red Cross Addis Ababa Misrak Zone Branch fulfill critical resource demands—specifically, upgrading missing tactical first aid kit systems and expanding localized instructional materials. Verified student completion metrics await final token certification distribution pipelines.</p>
+
+            <div class="report-meta-grid">
+                <div class="meta-sign-box">
+                    <strong>Prepared By:</strong><br>
+                    Red Cross Committee Lead<br>
+                    Student Amanawit Dereje
+                </div>
+                <div class="meta-sign-box">
+                    <strong>Verified and Released By:</strong><br>
+                    Club Coordinator<br>
+                    Mr. Tilahun Getachew
+                </div>
+            </div>
+        </div>
+
+        <div class="report-pdf-panel">
+            <div class="pdf-header-bar">
+                <span style="font-size: 13px; font-weight: 700; color: #fff;"><i class="far fa-file-alt" style="color: var(--neon-crimson); margin-right: 8px;"></i> Red_Cross_Club_Report.docx</span>
+                <a href="Red Cross Club Report.docx" class="btn btn-secondary" style="padding: 8px 16px; font-size: 12px; border-radius: 8px; margin: 0;" download>
+                    <i class="fas fa-download"></i> Download Source File
+                </a>
+            </div>
+            <iframe class="embedded-viewer" src="Red Cross Club Report.docx" title="Administrative Faculty Manifest Verification Engine">
+                <embed class="embedded-viewer" src="Red Cross Club Report.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            </iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Dandii Boru School Red Cross Club. Optimized with Modern Fluid Architecture.</p>
+    </footer>
+</body>
+</html>
