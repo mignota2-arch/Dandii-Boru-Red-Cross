@@ -17,62 +17,44 @@
         <div class="logo"><i class="fas fa-plus-square"></i> DBS <span>RED CROSS</span></div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="works.html">Our Works</a></li>
             <li><a href="leadership.html">Leadership</a></li>
             <li><a href="news.html">News</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="report.html">Annual Report</a></li>
         </ul>
     </nav>
 
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <h1 class="neon-text">Humanity First. <br><span class="highlight">Volunteers Always.</span></h1>
-            <p class="hero-subtitle">Welcome to the digital portal of Dandii Boru School's Red Cross Club. We train for field stabilization, organize impactful blood drives, and coordinate humanitarian aid deployment models within Addis Ababa.</p>
-            <div class="cta-container">
-                <a href="works.html" class="btn btn-primary">Explore Our Impact <i class="fas fa-arrow-right"></i></a>
-                <a href="#volunteer-simulation" class="btn btn-secondary">Simulate Registration</a>
-            </div>
+    <header class="hero" style="padding: 160px 8% 80px 8%; text-align: center;">
+        <h1 class="neon-text" style="font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">DANDII BORU SCHOOL<br><span style="color: var(--neon-crimson);">RED CROSS CLUB</span></h1>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto; font-size: 1.1rem; line-height: 1.6;">Serving humanity with precise dedication. Join our network of students, manage structural workflows, and coordinate localized field missions across Addis Ababa.</p>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <a href="registration.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Join as Volunteer</a>
+            <a href="report.html" class="btn btn-secondary"><i class="fas fa-file-invoice"></i> View Activity Report</a>
         </div>
-        <div class="hero-visual-container">
-            <div class="visual-card">
-                <img src="images/redcross-hero.jpg" alt="DBS Red Cross Student Volunteers" class="hero-image">
-                <div class="floating-badge"><i class="fas fa-heartbeat"></i> <span>In Service of Humanity</span></div>
-            </div>
-        </div>
-    </section>
+    </header>
 
-    <section class="menu-section" style="padding-top: 10px; padding-bottom: 40px;">
-        <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--cyan-accent);">
-                <i class="fas fa-user-friends" style="font-size: 36px; color: var(--cyan-accent); margin-bottom: 15px;"></i>
-                <h3 style="font-size: 36px; font-weight: 800;">150+</h3>
-                <p>Active Recruited Members</p>
+    <section class="menu-section" style="padding: 40px 8% 80px 8%;">
+        <div class="glass-card main-checkout" style="max-width: 700px; margin: 0 auto; padding: 40px;">
+            <h2 style="font-size: 22px; margin-bottom: 10px; font-weight: 700;"><i class="fas fa-project-diagram" style="color: var(--neon-crimson);"></i> Unit Track Selection Console</h2>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 25px;">Select a structural hub node down below to preview local interface simulation maps.</p>
+            
+            <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                <button class="btn btn-secondary" style="padding: 12px; font-size: 13px;" onclick="simulateBranch('First Aid Responder', 'Triage & Emergency')">First Aid Unit</button>
+                <button class="btn btn-secondary" style="padding: 12px; font-size: 13px;" onclick="simulateBranch('Blood Logistics Node', 'National Bank Drive')">Blood Drive Unit</button>
+                <button class="btn btn-secondary" style="padding: 12px; font-size: 13px;" onclick="simulateBranch('Outreach Officer', 'Public Welfare Distribution')">Outreach Division</button>
             </div>
-            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--neon-crimson);">
-                <i class="fas fa-tint" style="font-size: 36px; color: var(--neon-crimson); margin-bottom: 15px;"></i>
-                <h3 style="font-size: 36px; font-weight: 800;">80+</h3>
-                <p>Pints of Blood Donated</p>
+            
+            <div class="order-details" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div class="detail-row" style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px;">
+                    <span style="color: var(--text-muted);">Selected Track Position:</span>
+                    <strong id=\"summary-item\" style="color: #fff;">None Selected</strong>
+                </div>
+                <div class="detail-row" style="display: flex; justify-content: space-between; font-size: 14px;">
+                    <span style="color: var(--text-muted);">Target Department Assignment:</span>
+                    <strong id="summary-price" style="color: var(--cyan-accent);">Pending Track Action</strong>
+                </div>
             </div>
-            <div class="glass-card card-info" style="text-align: center; padding: 35px; border-bottom: 3px solid var(--gold-accent);">
-                <i class="fas fa-clock" style="font-size: 36px; color: var(--gold-accent); margin-bottom: 15px;"></i>
-                <h3 style="font-size: 36px; font-weight: 800;">1,200+</h3>
-                <p>Field Hours Documented</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="volunteer-simulation" class="order-section">
-        <div class="glass-card simulation-box">
-            <h2 class="neon-text-sm"><i class="fas fa-id-badge"></i> Volunteer Manifest Generator</h2>
-            <p class="simulation-desc">Select an operational branch role to instantly compile a clean JSON deployment packet locally.</p>
-            <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
-                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('First Aid First Responder', 'Triage Unit')">First Aid Division</button>
-                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('Blood Bank Recruiter', 'Donor Logistics')">Blood Drive Team</button>
-                <button class="btn btn-secondary" style="padding: 10px 22px; font-size: 13px;" onclick="simulateBranch('Outreach Officer', 'Public Welfare Distribution')">Outreach Division</button>
-            </div>
-            <div class="order-details">
-                <div class="detail-row"><span>Selected Track Position:</span><strong id="summary-item" style="color: #fff;">None Selected</strong></div>
-                <div class="detail-row"><span>Target Department Assignment:</span><strong id="summary-price" class="neon-price">Pending Track Action</strong></div>
-            </div>
+            
             <div class="sim-terminal">
                 <div class="terminal-header">
                     <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
